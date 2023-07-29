@@ -1,0 +1,63 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source "${XDG_CONFIG_HOME}/zsh/alias" 
+
+# autoload zkbd ; zkbd
+source ~/.config/zsh/.zkbd/alacritty-:
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+key[Shift-Tab]="${terminfo[kcbt]}"
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+
+
+key[Control-Left]="${terminfo[kLFT5]}"
+key[Control-Right]="${terminfo[kRIT5]}"
+
+[[ -n "${key[Control-Left]}"  ]] && bindkey -- "${key[Control-Left]}"  backward-word
+[[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
+
+unsetopt menu_complete # on ambiguous completion, don't insert first match...
+setopt auto_menu # ...instead automatically list possible completions 
+setopt complete_in_word # request completion from anywhere in word
+setopt always_to_end # move cursor to end of word after completion
+
+fpath=( ~/.config/zsh/zsh-completions/src/ $fpath)
+autoload -U compinit # force rebuild zcompdump cache for zsh-completions
+compinit
+zstyle ':completion:*' menu select
+
+
+
+HISTSIZE=10000
+SAVEHIST=10000
+[ ! -d "~/.cache/zsh/" ] && mkdir -p ~/.cache/zsh/
+HISTFILE=~/.cache/zsh/history
+
+setopt append_history # all zsh sessions will append not overwrite to hist
+setopt extended_history # log timestamps and command durations per event
+setopt hist_expire_dups_first # trim oldest duplicate events first
+setopt hist_ignore_dups # ignore duplicate consecutive events
+setopt hist_ignore_space # ignore commands starting with a " "?
+setopt inc_append_history # append to hist after every command 
+setopt share_history # share hist between zsh sessions
+
+
+# git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ~/.config/zsh/zsh-completions
+# git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
+# git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
+
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+

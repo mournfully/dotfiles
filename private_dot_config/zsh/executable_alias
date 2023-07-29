@@ -1,0 +1,34 @@
+#!/bin/sh
+
+alias cp='cp -iv' # interactive and verbose
+alias mv='mv -iv' # ^
+alias rm='rm -vI' # verbose and less instrusive prompts
+alias df='df -h'  # less verbose
+
+alias grep='grep --color=auto'
+alias ls='ls -hN --color=auto'
+alias lsl='ls -alF'
+alias lsa='ls -A'
+alias lsc='ls -CF'
+
+alias wget="wget -c" # resume download if interupted
+ 
+alias v="$EDITOR"
+alias vim="$EDITOR"
+alias nvim="$EDITOR"
+alias z="zathura"
+
+# https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/shell/aliases
+alias gs="git status"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gcv="git commit -v"
+alias ga="git add"
+alias gap="git add -p"
+alias gp="git push"
+alias gd="git diff"
+alias gl="git log"
+alias glo="git log --oneline"
+alias gb="git branch"
+alias gba="git branch -av"
+

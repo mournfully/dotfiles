@@ -1,0 +1,39 @@
+# set default apps
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export BROWSER="google-chrome"
+
+# clean up $HOME directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export LESSHISTFILE="-"
+export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export ZDOTDIR="$HOME/.config/zsh"
+
+# node
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm = node version manager
+
+# set languages
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
+# set manpages reader
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+# golang toolkit
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export PATH=$PATH:/usr/local/go/bin # system binaries
+export PATH=$PATH:$GOPATH/bin # local binaries
+
+# android toolkit
+export ANDROID_HOME="$HOME/Android"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+export PATH="$PATH:$ANDROID_HOME/build-tools/33.0.1/"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# rust toolkit
+. "$HOME/.cargo/env"
+
