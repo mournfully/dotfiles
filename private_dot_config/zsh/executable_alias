@@ -15,7 +15,6 @@ alias wget="wget -c" # resume download if interupted
  
 alias v="$EDITOR"
 alias vim="$EDITOR"
-alias nvim="$EDITOR"
 alias z="zathura"
 
 # https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/shell/aliases
