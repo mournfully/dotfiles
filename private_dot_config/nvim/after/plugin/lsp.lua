@@ -2,10 +2,12 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
+-- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 lsp.ensure_installed({
+    'lua_ls',
+    'marksman',
     'tsserver',
     'rust_analyzer',
-    'lua_ls',
 })
 
 -- Fix Undefined global 'vim'
