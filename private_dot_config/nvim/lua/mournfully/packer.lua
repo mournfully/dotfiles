@@ -49,5 +49,20 @@ return require('packer').startup(function(use)
         }
     }
 
+    use {
+        'vimwiki/vimwiki',
+        config = function()
+            vim.g.vimwiki_list = {{
+                path = '/mnt/data/vimwiki',
+                syntax = 'markdown',
+                ext = '.md',
+            }}
+            vim.g.vimwiki_ext2syntax = {
+                ['.md'] = 'markdown',
+                ['.markdown'] = 'markdown',
+                ['.mdown'] = 'markdown',
+            }
+        end
+    }
 end)
 
