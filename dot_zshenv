@@ -13,8 +13,6 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # node
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm = node version manager
 
 # set languages
 export LC_ALL="en_US.UTF-8"

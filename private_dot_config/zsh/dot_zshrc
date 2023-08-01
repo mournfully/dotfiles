@@ -33,7 +33,8 @@ autoload -U compinit # force rebuild zcompdump cache for zsh-completions
 compinit
 zstyle ':completion:*' menu select
 
-
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm = node version manager
 
 HISTSIZE=10000
 SAVEHIST=10000
