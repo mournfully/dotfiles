@@ -4,6 +4,8 @@ fi
 
 source "${XDG_CONFIG_HOME}/zsh/alias" 
 
+export PATH=$PATH:$HOME/.local/bin
+
 # autoload zkbd ; zkbd
 source ~/.config/zsh/.zkbd/alacritty-:
 [[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
