@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 alias cp='cp -iv' # interactive and verbose
 alias mv='mv -iv' # ^
@@ -20,14 +20,14 @@ alias z="zathura"
 # https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/shell/aliases
 alias gs="git status"
 alias gc="git commit"
-alias gca="git commit --amend"
 alias gcv="git commit -v"
+alias gca="git commit -v --amend"
+alias gcan="git commit --amend --no-edit"
 alias ga="git add"
 alias gap="git add -p"
 alias gp="git push"
 alias gd="git diff"
 alias gl="git log"
 alias glo="git log --oneline"
-alias gb="git branch"
-alias gba="git branch -av"
+alias gbs="git branch -av"
 
