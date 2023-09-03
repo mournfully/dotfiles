@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
                 ['.markdown'] = 'markdown',
                 ['.mdown'] = 'markdown',
             }
+            vim.g.vimwiki_url_maxsave = 0
         end
     }
 end)
