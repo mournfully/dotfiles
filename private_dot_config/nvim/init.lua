@@ -6,3 +6,4 @@
 require("mournfully.set")
 require("mournfully.remap")
 require("mournfully.lazy")
+require("mournfully.autocmd")
