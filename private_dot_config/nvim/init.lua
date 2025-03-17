@@ -5,4 +5,4 @@
 
 require("mournfully.set")
 require("mournfully.remap")
-require("mournfully.set")
+require("mournfully.lazy")
