@@ -1,0 +1,13 @@
+[Unit]
+Description=Start xremap
+
+[Service]
+Type=exec
+TimeoutStartSec=30
+WorkingDirectory=/home/mournfully
+StandardOutput=journal
+ExecStart=xremap /home/mournfully/.config/xremap/config.yml --mouse --device ids:0x258a:0x36  
+Restart=always
+
+[Install]
+WantedBy=default.target
